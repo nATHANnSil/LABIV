@@ -1,0 +1,38 @@
+import com.labdessoft.roteiro01.model.Task;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TaskTest {
+
+    @Test
+    public void testSetAndGetTaskType() {
+        Task task = new Task();
+        task.setType(Task.TaskType.DATA);
+        assertEquals(Task.TaskType.DATA, task.getType());
+    }
+
+    @Test
+    public void testSetAndGetPriorityLevel() {
+        Task task = new Task();
+        task.setPriority(Task.PriorityLevel.ALTA);
+        assertEquals(Task.PriorityLevel.ALTA, task.getPriority());
+    }
+
+    @Test
+    public void testSetAndGetDueDate() {
+        Task task = new Task();
+        LocalDate dueDate = LocalDate.now();
+        task.setDueDate(dueDate);
+        assertEquals(dueDate, task.getDueDate());
+    }
+
+    @Test
+    public void testSetAndGetStatus() {
+        Task task = new Task();
+        task.setStatus(Task.TaskStatus.PREVISTA);
+        assertEquals(Task.TaskStatus.PREVISTA, task.getStatus());
+    }
+}
