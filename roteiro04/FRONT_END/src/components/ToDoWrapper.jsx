@@ -11,6 +11,13 @@ export const TodoWrapper = () => {
         ]);
     }
     const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
+    const editTodo = (id) => {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+            )
+        );
+    }
     return (
         <div className='TodoWrapper'>
             <h1>Lista de Tarefas</h1>
@@ -20,6 +27,7 @@ export const TodoWrapper = () => {
                     key={todo.id}
                     task={todo}
                     deleteTodo={deleteTodo}
+                    editTodo={editTodo}
                 />
             )
             }
